@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojos N Ninjas</title>
+</head>
+<body>
+    <form action="/adddojo" method="post">
+        <fieldset>
+            <legend>Add Dojo</legend>
+            <label for="name">Name</label>
+            <input type="text" name="name">
+            <label for="city">Cirty</label>
+            <input type="text" name="city">
+            <label for="state">State</label>
+            <input type="text" name="state">
+            <br>
+            <input type="submit" name="Add">
+        </fieldset>
+    </form>
+
+<br>
+
+    <form action="/addninja" method="post">
+        <fieldset>
+            <legend>Add a Ninja</legend>
+            <label for="first_name"> First Name</label>
+            <input type="text" name="first_name">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name">
+            <Select name="add_doj">Select a Dojo
+                <option value="san_jose">San Jose</option>
+                <option value="burbank">Burbank</option>
+                <option value="seattle">Seallte</option>
+                <option value="new_york">New York</option>
+                <option value="Chicago">Chicago</option>
+            </select>
+            <br>
+            <input type="submit" name="Add">
+        </fieldset>
+    </form>
+
+    <h3>Dojos & Their Ninjas</h3>
+    <ul>
+        {% for dojo in dojos %}
+        <li>
+            <h5>{{"Ninjas in the {} Dojo".format(dojo.name)}}</h5>
+        {% for user in add_ninja %}
+        <li>
+            <span>{{ninja.first_name() ninja.last_name()}}</span>
+        </li>
+        {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
